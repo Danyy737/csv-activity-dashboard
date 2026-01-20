@@ -9,6 +9,9 @@ entertainment and fitness activities.
 ### Dashboard
 ![Dashboard](screenshots/dashboard.png.png)
 
+### Adding Activities
+![Adding Activities](screenshots/addingactivities.png)
+
 ## Technologies Used
 - C#
 - .NET Windows Forms
