@@ -1,0 +1,244 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PART2OOPPROJECTUI_DANIELMOURAD</name>
+    </assembly>
+    <members>
+        <member name="T:PART2OOPPROJECTUI_DANIELMOURAD.DatabaseHelper">
+            <summary>
+            Provides simple ADO.NET helpers to call stored procedures in ActivitiesDb.
+            </summary>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.DatabaseHelper.ExecuteStoredProcedure(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Executes a stored procedure and returns the results in a DataTable.
+            </summary>
+            <summary>
+            Executes the specified stored procedure and returns the results in a DataTable.
+            </summary>
+            <param name="procName">Stored procedure name (e.g., "GetAllActivities").</param>
+            <param name="parameters">Optional SQL parameters passed to the procedure.</param>
+            <returns>A DataTable containing the result set.</returns>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.DatabaseHelper.GetAllActivities">
+            <summary>
+            Convenience wrapper: Get all activities.
+            </summary>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.DatabaseHelper.SearchActivitiesByDate(System.DateTime,System.String)">
+            <summary>
+            Searches activities by date using the provided operator ('before', 'on', or 'after').
+            </summary>
+            <param name="date">The date to compare against (date component is used).</param>
+            <param name="op">Operator: 'before', 'on', or 'after'.</param>
+            <returns>DataTable with matching rows.</returns>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.DatabaseHelper.AddFitnessActivity(System.DateTime,System.String,System.Decimal,System.String)">
+            <summary>
+            Adds a fitness activity via stored procedure.
+            </summary>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.DatabaseHelper.AddEntertainmentActivity(System.DateTime,System.String,System.Decimal,System.Int32)">
+            <summary>
+            Adds an entertainment activity via stored procedure.
+            </summary>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.DatabaseHelper.UpdateActivityWithTypeCheck(System.Int32,System.DateTime,System.String,System.Decimal,System.String,System.String,System.Nullable{System.Int32})">
+            <summary>
+            Replaces (updates) an existing activity by ActivityID (changes type if needed).
+            </summary>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.Form1.button2_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the click event for searching activities by date.
+            Filters activities based on Before, On, or After condition.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.Form1.button1_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the click event for adding a new activity.
+            Validates input and saves the activity to the CSV file.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.Form1.RefreshGrid">
+            <summary>
+            Refreshes the DataGridView with all activities from both CSV files.
+            </summary>
+        </member>
+        <member name="F:PART2OOPPROJECTUI_DANIELMOURAD.Form1.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.Form1.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.Form1.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:PART2OOPPROJECTUI_DANIELMOURAD.Activity">
+            <summary>
+            Represents a base activity with common properties such as date, title, cost, location, and minimum participants.
+            </summary>
+        </member>
+        <member name="P:PART2OOPPROJECTUI_DANIELMOURAD.Activity.DateStartTime">
+            <summary>
+            Gets or sets the start date and time of the activity.
+            </summary>
+        </member>
+        <member name="P:PART2OOPPROJECTUI_DANIELMOURAD.Activity.Title">
+            <summary>
+            Gets or sets the title of the activity.
+            </summary>
+        </member>
+        <member name="P:PART2OOPPROJECTUI_DANIELMOURAD.Activity.Cost">
+            <summary>
+            Gets or sets the cost of the activity.
+            </summary>
+        </member>
+        <member name="P:PART2OOPPROJECTUI_DANIELMOURAD.Activity.Location">
+            <summary>
+            Gets or sets the location of the activity.
+            </summary>
+        </member>
+        <member name="P:PART2OOPPROJECTUI_DANIELMOURAD.Activity.MinParticipants">
+            <summary>
+            Gets or sets the minimum number of participants required for the activity.
+            </summary>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.Activity.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:PART2OOPPROJECTUI_DANIELMOURAD.Activity"/> class. Required for CsvHelper.
+            </summary>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.Activity.#ctor(System.DateTime,System.String,System.Decimal,System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PART2OOPPROJECTUI_DANIELMOURAD.Activity"/> class with all properties.
+            </summary>
+            <param name="date">The start date and time of the activity.</param>
+            <param name="title">The title of the activity.</param>
+            <param name="cost">The cost of the activity.</param>
+            <param name="location">The location of the activity.</param>
+            <param name="minParticipants">The minimum number of participants required.</param>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.Activity.#ctor(System.DateTime,System.String,System.Decimal)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PART2OOPPROJECTUI_DANIELMOURAD.Activity"/> class with basic properties.
+            </summary>
+            <param name="date">The start date and time of the activity.</param>
+            <param name="title">The title of the activity.</param>
+            <param name="cost">The cost of the activity.</param>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.Activity.GetDetails">
+            <summary>
+            Returns a string containing details of the activity.
+            </summary>
+            <returns>A formatted string describing the activity.</returns>
+        </member>
+        <member name="T:PART2OOPPROJECTUI_DANIELMOURAD.CsvActivityService`1">
+            <summary>
+            Provides methods to load and save activities from a CSV file using CsvHelper.
+            </summary>
+            <typeparam name="T">The type of activity.</typeparam>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.CsvActivityService`1.LoadActivities">
+            <summary>
+            Loads all activities from the CSV file.
+            </summary>
+            <returns>A list of activities.</returns>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.CsvActivityService`1.SaveActivity(`0)">
+            <summary>
+            Saves a new activity to the CSV file.
+            </summary>
+            <param name="activity">The activity to save.</param>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.CsvActivityService`1.DeleteActivity(System.Func{`0,System.Boolean})">
+            <summary>
+            Deletes an activity from the CSV file based on a condition.
+            </summary>
+            <param name="predicate">The condition to match the activity to delete.</param>
+        </member>
+        <member name="T:PART2OOPPROJECTUI_DANIELMOURAD.EntertainmentActivity">
+            <summary>
+            Represents an entertainment activity with minimum participants.
+            </summary>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.EntertainmentActivity.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:PART2OOPPROJECTUI_DANIELMOURAD.EntertainmentActivity"/> class.
+            </summary>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.EntertainmentActivity.#ctor(System.DateTime,System.String,System.Decimal,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PART2OOPPROJECTUI_DANIELMOURAD.EntertainmentActivity"/> class with specified details.
+            </summary>
+            <param name="date">The date and time of the activity.</param>
+            <param name="title">The title of the activity.</param>
+            <param name="cost">The cost of the activity.</param>
+            <param name="minParticipants">The minimum number of participants required.</param>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.EntertainmentActivity.GetDetails">
+            <summary>
+            Returns details of the entertainment activity.
+            </summary>
+            <returns>A formatted string with title, participants, and date.</returns>
+        </member>
+        <member name="T:PART2OOPPROJECTUI_DANIELMOURAD.FitnessActivity">
+            <summary>
+            Represents a fitness activity with a specific location.
+            </summary>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.FitnessActivity.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:PART2OOPPROJECTUI_DANIELMOURAD.FitnessActivity"/> class.
+            </summary>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.FitnessActivity.#ctor(System.DateTime,System.String,System.Decimal,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PART2OOPPROJECTUI_DANIELMOURAD.FitnessActivity"/> class with specified details.
+            </summary>
+            <param name="date">The date and time of the activity.</param>
+            <param name="title">The title of the activity.</param>
+            <param name="cost">The cost of the activity.</param>
+            <param name="location">The location where the activity takes place.</param>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.FitnessActivity.GetDetails">
+            <summary>
+            Returns details of the fitness activity.
+            </summary>
+            <returns>A formatted string with title, location, and date.</returns>
+        </member>
+        <member name="M:PART2OOPPROJECTUI_DANIELMOURAD.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:PART2OOPPROJECTUI_DANIELMOURAD.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:PART2OOPPROJECTUI_DANIELMOURAD.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:PART2OOPPROJECTUI_DANIELMOURAD.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>
