@@ -10,7 +10,7 @@ entertainment and fitness activities.
 ![Dashboard](screenshots/dashboard.png.png)
 
 ### Adding Activities
-![Adding Activities](screenshots/addingactivities.png,png)
+![Adding Activities](screenshots/addingactivities.png.png)
 
 ## Technologies Used
 - C#
