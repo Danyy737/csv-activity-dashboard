@@ -7,7 +7,7 @@ and fitness activities in a clean desktop UI.
 ## Screenshots
 
 ### Dashboard
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](screenshots/dashboard.png.png)
 
 ## Technologies Used
 - C#
